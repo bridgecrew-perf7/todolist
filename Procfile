@@ -1,0 +1,1 @@
+web: java -jar target/to-do-aga-dev-1.0.jar

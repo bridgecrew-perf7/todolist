@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>ToDo List</title>
+	<script src="/js/jquery-3.4.0.min.js"></script>
+	<script src="/js/main.js"></script>
+    <script src="/js/settings.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+	<div id="taskEntity-form">
+        <form>
+            <h2>Создание нового дела</h2>
+            <label>Название дела:</label>
+            <input type="text" name="name" value="">
+            <label>Описание дела:</label>
+            <input type="text" name="description" value="">
+            <hr>
+            <button id="save-taskEntity">Сохранить</button>
+        </form>
+	</div>
+    <div id="edit-form">
+        <form>
+            <h2>Редактирование дела</h2>
+            <label>Название дела:</label>
+            <input type="text" name="name" value="">
+            <label>Описание дела:</label>
+            <input type="text" name="description" value="">
+            <hr>
+            <button id="apply-taskEntity">Применить</button>
+        </form>
+    </div>
+
+    <input type="image" src="/img/yellow.png" id="yellowButton">
+    <input type="image" src="/img/green.png" id="greenButton">
+    <input type="image" src="/img/white.png" id="whiteButton">
+    <br>
+
+    <h2>
+        Сегодня : <span th:text="${date}"></span>
+    </h2>
+    <br>
+
+    <h1> <img src="/img/toDoList.png">
+        <input type="image" src="/img/add.png" id="show-add-taskEntity-form">
+        <div class="descriptionBtn" style="display : none;">Нажмите чтобы добавить дело</div>
+    </h1>
+
+    <h2>Всего задач : <span th:text="${taskCount}">0</span></h2>
+
+    <br><br>
+		<div id="taskEntity-list">
+            <div th:each="taskEntity : ${tasks}">
+                <div th:if="${taskEntity.finishTask}">
+                    <a href="javascript:" class="taskEntity-link" th:style="'text-decoration : line-through; color : red '" th:attr="data-id=${taskEntity.id}" th:text="|${taskEntity.name}|"></a>
+                    <input type="image" src="/img/continue_icon.png" class="continue-taskEntity" th:attr="data-id=${taskEntity.id}">
+                    <span class="descriptionBtn" style=" display : none;">Продолжить дело</span>
+                    <input type="image" src="/img/delete_icon.png" class="delete-taskEntity" th:attr="data-id=${taskEntity.id}">
+                    <span class="descriptionBtn" style="display : none;">Удалить дело</span>
+                    <br>
+                </div>
+                <!-- ELSE -->
+                <div th:unless="${taskEntity.finishTask}">
+                    <a href="javascript:" class="taskEntity-link" th:attr="data-id=${taskEntity.id}" th:text="|${taskEntity.name}|"></a>
+                    <input type="image" src="/img/delete_icon.png" class="delete-taskEntity" th:attr="data-id=${taskEntity.id}">
+                    <span class="descriptionBtn" style="display : none;">Удалить дело</span>
+                    <input type="image" src="/img/edit_icon.png" class="edit-taskEntity" th:attr="data-id=${taskEntity.id}">
+                    <span class="descriptionBtn" style="display : none;">Редактировать дело</span>
+                    <input type="image" src="/img/finishTask.png" class="finish-taskEntity" th:attr="data-id=${taskEntity.id}">
+                    <span class="descriptionBtn" style=" display : none;">Завершить дело и установить дату завершения </span>
+                     <br>
+                </div>
+		</div>
+        </div>
+    <div class="div">
+
+        <br><br>
+        <input type="image" src="/img/delete_all_trash_full.png" id="delete-all">
+        <span class="descriptionBtn" style="display : none;">Нажмите чтобы очистить весь список</span>
+        <h3><a href="#" class="up-link" padding-top="2000px">Вверх !</a></h3>
+
+    </div>
+    <script src="/js/colorsButtons.js"></script>
+</body>
+
+</html>

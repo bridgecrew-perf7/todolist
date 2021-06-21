@@ -1,0 +1,98 @@
+* {
+    font-family: Arial;
+    font-size : x-large;
+}
+
+h1 {
+    font-size : 32px;
+}
+
+h2 {
+    font-size : 16px;
+}
+
+a {
+    font-size : 16px;
+}
+
+a.taskEntity-link {
+    font-size : 32px;
+    color : black;
+}
+
+a.taskEntity-link.finish {          /* Перечёркиваем активную ссылку */
+  color: #8c7b7b;
+  text-decoration: line-through;
+}
+
+#taskEntity-form {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 16;
+}
+
+#taskEntity-form form {
+    background-color: orange;
+    border: 1px solid #333;
+    width: 300px;
+    padding: 20px;
+}
+
+#taskEntity-form h2 {
+    margin-top: 0;
+}
+
+#taskEntity-form label {
+    display: block;
+}
+
+#taskEntity-form form > * {
+    margin-bottom: 5px;
+}
+
+h4 {
+    margin-bottom: 0;
+}
+
+#edit-form {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 16;
+}
+
+#edit-form form {
+    background-color: orange;
+    border: 1px solid #333;
+    width: 300px;
+    padding: 20px;
+}
+
+#edit-form label {
+    display: block;
+}
+
+.descriptionBtn {
+    display : none;
+    font-size : 16px;
+    color: blue;
+}
+
+.up-link {
+    border: 16px;
+    display: flex;
+    align-items: flex-end;
+}
+
+
